@@ -5,7 +5,8 @@ extends KinematicBody2D
 export (bool) var ally
 export (int) var move_speed = 150
 export (int) var hp = 10
+var current_hp = hp
+
+# REFERENCES
 
 # FUNCTIONS
-func take_damage(damage):
-	hp -= damage

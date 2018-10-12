@@ -1,5 +1,5 @@
 # CLASS
-extends Node
+extends Node2D
 
 # REFERENCES
 onready var unit = $"../"
@@ -11,11 +11,6 @@ var move_destination
 export (int) var GRAVITY = 2200
 
 # FUNCTIONS
-func _ready():
-	print("coucou")
-	print("this is my name", unit.name)
-	print(unit_sprite.name)
-
 func _physics_process(delta):
 	velocity = compute_gravity(velocity, delta)
 	velocity = compute_movement(velocity)

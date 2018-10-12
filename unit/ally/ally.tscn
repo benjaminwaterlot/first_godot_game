@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://unit/unit.gd" type="Script" id=1]
 [ext_resource path="res://unit/UnitSprite.tscn" type="PackedScene" id=2]
 [ext_resource path="res://unit/unit_interface.gd" type="Script" id=3]
 [ext_resource path="res://unit/unit_movement.gd" type="Script" id=4]
+[ext_resource path="res://unit/UnitHUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="NativeScript" id=1]
 
@@ -18,7 +19,6 @@ _sections_unfolded = [ "Resource" ]
 
 [node name="Ally" type="KinematicBody2D"]
 
-position = Vector2( 0, -0.08008 )
 scale = Vector2( 2, 2 )
 input_pickable = false
 collision_layer = 1
@@ -26,30 +26,38 @@ collision_mask = 1024
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
-__meta__ = {
-"_edit_group_": true
-}
 ally = true
 move_speed = 150
 hp = 10
 
 [node name="UnitSprite" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 0, 0 )
+position = Vector2( 0, 0.04004 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="UnitCollision" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0.507202, 5.41013 )
+position = Vector2( 0, 4 )
 shape = SubResource( 2 )
 
-[node name="UnitInterface" type="Node" parent="." index="2"]
+[node name="UnitInterface" type="Node2D" parent="." index="2"]
 
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="UnitMovement" type="Node" parent="." index="3"]
+[node name="UnitMovement" type="Node2D" parent="." index="3"]
 
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 GRAVITY = 2200
+
+[node name="UnitHUD" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 0, -12 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 
