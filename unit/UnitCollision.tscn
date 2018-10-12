@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="NativeScript" id=1]
+
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 4.7652
+height = 13.4242
+script = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+
+[node name="UnitCollision" type="CollisionShape2D"]
+
+position = Vector2( 0.507202, 5.41013 )
+shape = SubResource( 2 )
+
+

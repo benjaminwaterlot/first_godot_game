@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://unit/unit.gd" type="Script" id=1]
+[ext_resource path="res://unit/UnitSprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://unit/unit_interface.gd" type="Script" id=3]
+[ext_resource path="res://unit/unit_movement.gd" type="Script" id=4]
+
+[sub_resource type="NativeScript" id=1]
+
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 4.7652
+height = 13.4242
+script = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+
+[node name="Enemy" type="KinematicBody2D"]
+
+scale = Vector2( 2, 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1024
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+ally = false
+move_speed = 150
+hp = 10
+
+[node name="UnitSprite" parent="." index="0" instance=ExtResource( 2 )]
+
+modulate = Color( 0.660156, 0.28624, 0.28624, 1 )
+position = Vector2( 0, 0 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
+
+[node name="UnitCollision" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0.507202, 5.41013 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="UnitInterface" type="Node" parent="." index="2"]
+
+script = ExtResource( 3 )
+
+[node name="UnitMovement" type="Node" parent="." index="3"]
+
+script = ExtResource( 4 )
+GRAVITY = 2200
+
+
