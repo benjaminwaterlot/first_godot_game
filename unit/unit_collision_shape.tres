@@ -1,0 +1,14 @@
+[gd_resource type="CapsuleShape2D" load_steps=2 format=2]
+
+[sub_resource type="NativeScript" id=1]
+
+
+[resource]
+
+resource_name = "unit_collision_shape"
+custom_solver_bias = 0.0
+radius = 2.0
+height = 45.0
+script = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+

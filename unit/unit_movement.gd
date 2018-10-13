@@ -1,3 +1,4 @@
+# UnitMovement handles pathfinding and actual unit movement.
 # CLASS
 extends Node2D
 
@@ -16,6 +17,16 @@ func _physics_process(delta):
 	velocity = compute_movement(velocity)
 	move_to(velocity)
 
+func start_moving(destination):
+	unit.set_collision_layer(pow(2, 1))
+	unit.set_collision_mask(pow(2, 10))
+	move_destination = destination
+
+func stop_moving():
+	unit.set_collision_layer(pow(2, 0))
+	unit.set_collision_mask(pow(2, 0) + pow(2, 10))
+	move_destination = null
+
 func compute_gravity(velocity, delta):
 	if unit.is_on_floor():
 		velocity.y = 0
@@ -32,7 +43,7 @@ func compute_movement(velocity):
 		var is_arrived = abs(remaining_distance) < 5
 
 		if is_arrived:
-			move_destination = null
+			stop_moving()
 			velocity.x = 0
 			unit_sprite.play("idle")
 

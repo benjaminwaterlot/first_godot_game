@@ -2,57 +2,55 @@
 
 [ext_resource path="res://unit/unit.gd" type="Script" id=1]
 [ext_resource path="res://unit/UnitSprite.tscn" type="PackedScene" id=2]
-[ext_resource path="res://unit/unit_movement.gd" type="Script" id=3]
-[ext_resource path="res://unit/UnitHUD.tscn" type="PackedScene" id=4]
-
-[sub_resource type="NativeScript" id=1]
-
-
-[sub_resource type="CapsuleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 4.7652
-height = 13.4242
-script = SubResource( 1 )
-_sections_unfolded = [ "Resource" ]
+[ext_resource path="res://unit/unit_collision_shape.tres" type="Shape2D" id=3]
+[ext_resource path="res://unit/unit_movement.gd" type="Script" id=4]
+[ext_resource path="res://GUI/HUD/UnitHUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://unit/UnitAggro.tscn" type="PackedScene" id=6]
 
 [node name="Ally" type="KinematicBody2D"]
 
-scale = Vector2( 2, 2 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 0
 collision_mask = 1024
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
-ally = true
+_sections_unfolded = [ "Transform", "Z Index" ]
+team = 0
 move_speed = 150
 hp = 10
 attack_damage = 1
 attack_speed = 1
-attack_range = 10
+attack_range = 30
 
 [node name="UnitSprite" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 0, 0.04004 )
+scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="UnitCollision" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, 4 )
-shape = SubResource( 2 )
+position = Vector2( 0, 7 )
+shape = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="UnitMovement" type="Node2D" parent="." index="2"]
 
-script = ExtResource( 3 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 GRAVITY = 2200
 
-[node name="UnitHUD" parent="." index="3" instance=ExtResource( 4 )]
+[node name="UnitHUD" parent="." index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 0, -12 )
+position = Vector2( 0, -24 )
+scale = Vector2( 0.1, 0.1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="UnitAggro" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 0, 8 )
 
 
