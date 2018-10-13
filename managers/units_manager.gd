@@ -1,9 +1,15 @@
-extends Node
+# CLASS
+extends Node2D
 
+# STATS
 var units = []
 
-func send_order(destination):
+# FUNCTIONS
+func send_move_order(destination):
 	get_tree().call_group("selection", "receive_move_order", destination)
+
+func send_attack_order(target):
+	get_tree().call_group("selection", "receive_attack_order", target)
 
 func clear_selection():
 	for unit in get_tree().get_nodes_in_group("selection"):

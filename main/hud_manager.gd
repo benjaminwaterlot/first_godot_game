@@ -1,7 +1,11 @@
+# CLASS
 extends Node2D
+
+# STATE
 var selecting = false
 var selecting_start
 
+# FUNCTIONS
 func _process(delta):
 	if selecting:
 		update()
@@ -9,7 +13,6 @@ func _process(delta):
 func _draw():
 	if selecting:
 		var mouse_position = get_global_mouse_position()
-		print("COUCOU")
 		draw_polygon([
 				selecting_start,
 				Vector2(selecting_start.x, mouse_position.y),

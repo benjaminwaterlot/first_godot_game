@@ -7,7 +7,7 @@
 [ext_resource path="res://main/input_manager.gd" type="Script" id=5]
 [ext_resource path="res://main/hud_manager.gd" type="Script" id=6]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -22,7 +22,15 @@ position = Vector2( 229.55, 47.8756 )
 
 position = Vector2( 845.657, 64.2921 )
 
-[node name="Terrain" type="TileMap" parent="." index="2"]
+[node name="Ally2" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 788.009, 80.0988 )
+
+[node name="Ally3" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 920.971, 84.7478 )
+
+[node name="Terrain" type="TileMap" parent="." index="4"]
 
 position = Vector2( 181.627, 541.28 )
 scale = Vector2( 2, 2 )
@@ -48,7 +56,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UnitsManager" type="Node2D" parent="." index="3"]
+[node name="UnitsManager" type="Node2D" parent="." index="5"]
 
 position = Vector2( 4.84509, -1.61502 )
 script = ExtResource( 4 )
@@ -56,11 +64,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="InputManager" type="Node2D" parent="." index="4"]
+[node name="InputManager" type="Node2D" parent="." index="6"]
 
 script = ExtResource( 5 )
 
-[node name="HUDManager" type="Node2D" parent="." index="5"]
+[node name="HUDManager" type="Node2D" parent="." index="7"]
 
 z_index = 1000
 script = ExtResource( 6 )

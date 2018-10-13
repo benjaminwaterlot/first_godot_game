@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://unit/unit.gd" type="Script" id=1]
 [ext_resource path="res://unit/UnitSprite.tscn" type="PackedScene" id=2]
-[ext_resource path="res://unit/UnitInterface.tscn" type="PackedScene" id=3]
-[ext_resource path="res://unit/UnitMovement.tscn" type="PackedScene" id=4]
-[ext_resource path="res://unit/UnitHUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://unit/UnitMovement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://unit/UnitHUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="NativeScript" id=1]
 
@@ -17,7 +16,9 @@ height = 13.4242
 script = SubResource( 1 )
 _sections_unfolded = [ "Resource" ]
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=[
+"enemies",
+]]
 
 scale = Vector2( 2, 2 )
 input_pickable = false
@@ -27,8 +28,11 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 ally = false
-move_speed = 150
+move_speed = 200
 hp = 10
+attack_damage = 1
+attack_speed = 1
+attack_range = 10
 
 [node name="UnitSprite" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -42,11 +46,9 @@ position = Vector2( 0, 4 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="UnitInterface" parent="." index="2" instance=ExtResource( 3 )]
+[node name="UnitMovement" parent="." index="2" instance=ExtResource( 3 )]
 
-[node name="UnitMovement" parent="." index="3" instance=ExtResource( 4 )]
-
-[node name="UnitHUD" parent="." index="4" instance=ExtResource( 5 )]
+[node name="UnitHUD" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 0, -12 )
 
