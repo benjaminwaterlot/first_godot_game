@@ -4,7 +4,7 @@ extends Node2D
 
 # REFERENCES
 onready var unit = $"../"
-onready var unit_sprite = $"../UnitSprite"
+onready var warrior_sprite = $"../WarriorSprite"
 var velocity = Vector2()
 var move_destination
 
@@ -45,14 +45,14 @@ func compute_movement(velocity):
 		if is_arrived:
 			stop_moving()
 			velocity.x = 0
-			unit_sprite.play("idle")
+			warrior_sprite.play("idle")
 
 		else:
 			var is_going_right = remaining_distance > 0
 			velocity.x = unit.move_speed if is_going_right else - unit.move_speed
-			unit_sprite.play("running")
-			if is_going_right == unit_sprite.flip_h :
-				unit_sprite.flip_h = !unit_sprite.flip_h
+			warrior_sprite.play("running")
+			if is_going_right == warrior_sprite.flip_h :
+				warrior_sprite.flip_h = !warrior_sprite.flip_h
 
 	return velocity
 

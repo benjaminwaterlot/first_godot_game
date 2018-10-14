@@ -29,7 +29,7 @@ func _input(event):
 		selection_manager.clear_selection()
 		hud_manager.stop_selecting()
 
-		if mouse_position.distance_to(selection_start) > 10:
+		if mouse_position.distance_to(selection_start) > 100:
 			select_in_rectangle(selection_start, mouse_position)
 		else:
 			var selected = return_pointed_entity(mouse_position)
@@ -49,7 +49,9 @@ func select_in_rectangle(start, end):
 
 func return_pointed_entity(position):
 	var space_state = get_world_2d().direct_space_state
-	var end = Vector2(position.x + 1, position.y)
-	var entity = space_state.intersect_ray(position, end)
+	var start = Vector2(position.x - 15, position.y - 10)
+	var end = Vector2(position.x + 15, position.y + 10)
+	var entity = space_state.intersect_ray(start, end, [], pow(2, 0) + pow(2, 1) + pow(2, 9))
+	print(entity)
 	if entity and "team" in entity.collider:
 		return entity.collider

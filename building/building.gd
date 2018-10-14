@@ -12,7 +12,7 @@ onready var faction_manager = $"/root/World/Managers/FactionManager"
 onready var building_hud = $"BuildingHUD"
 onready var life_bar = $"BuildingHUD/LifeBar"
 onready var building_gui = $"BuildingGUI"
-var warrior = preload("res://unit/enemy/enemy.tscn")
+var warrior = preload("res://unit/warrior/enemy/enemy.tscn")
 
 # FUNCTIONS
 func _ready():

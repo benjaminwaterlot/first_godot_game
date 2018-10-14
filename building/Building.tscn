@@ -3,8 +3,10 @@
 [ext_resource path="res://building/building.gd" type="Script" id=1]
 [ext_resource path="res://building/Sprites/Bakery.png" type="Texture" id=2]
 [ext_resource path="res://GUI/HUD/BuildingHUD.tscn" type="PackedScene" id=3]
-[ext_resource path="res://other_assets/characters/Plain/idle/0.png" type="Texture" id=4]
+[ext_resource path="res://unit/warrior/animations/idle/0.png" type="Texture" id=4]
 [ext_resource path="res://building/building_gui/button.gd" type="Script" id=5]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

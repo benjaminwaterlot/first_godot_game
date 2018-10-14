@@ -13,15 +13,15 @@
 [ext_resource path="res://managers/faction_manager.gd" type="Script" id=11]
 [ext_resource path="res://GUI/gui.gd" type="Script" id=12]
 [ext_resource path="res://building/Building.tscn" type="PackedScene" id=13]
-[ext_resource path="res://unit/enemy/enemy.tscn" type="PackedScene" id=14]
-[ext_resource path="res://unit/ally/ally.tscn" type="PackedScene" id=15]
+[ext_resource path="res://unit/warrior/enemy/enemy.tscn" type="PackedScene" id=14]
+[ext_resource path="res://unit/warrior/ally/ally.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 27.6187, 27.4139 )
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -205,6 +205,7 @@ _sections_unfolded = [ "Rect", "Size Flags" ]
 [node name="Bakery" parent="." index="5" instance=ExtResource( 13 )]
 
 position = Vector2( 104, 432 )
+team = 5
 
 [node name="Enemy" parent="." index="6" instance=ExtResource( 14 )]
 
