@@ -29,5 +29,3 @@ func _process(delta):
 func attack():
 	play("attack")
 	transition = attack_time
-
-

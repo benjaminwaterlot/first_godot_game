@@ -52,6 +52,5 @@ func return_pointed_entity(position):
 	var start = Vector2(position.x - 15, position.y - 10)
 	var end = Vector2(position.x + 15, position.y + 10)
 	var entity = space_state.intersect_ray(start, end, [], pow(2, 0) + pow(2, 1) + pow(2, 9))
-	print(entity)
 	if entity and "team" in entity.collider:
 		return entity.collider

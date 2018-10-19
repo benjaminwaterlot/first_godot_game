@@ -15,7 +15,7 @@ func send_action_order(target):
 
 func send_aggro_order():
 	for unit in get_tree().get_nodes_in_group("units"):
-		unit.receive_aggro_order()
+		unit.receive_aggro_signal()
 
 func register_unit(unit):
 	unit.add_to_group("units")
@@ -30,7 +30,7 @@ func unregister_unit(dead_unit):
 		dead_unit.remove_from_group("selection")
 
 	for any_unit in get_tree().get_nodes_in_group("units"):
-		if any_unit.attack_target == dead_unit:
+		if ("attack_target" in any_unit) and (any_unit.attack_target == dead_unit):
 			any_unit.attack_target = null
 
 	dead_unit.queue_free()

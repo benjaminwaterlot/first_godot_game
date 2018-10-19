@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://unit/unit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://unit/citizen/citizen.gd" type="Script" id=2]
+[ext_resource path="res://unit/citizen/CitizenSprite.gd" type="Script" id=3]
+
+[node name="Citizen" index="0" instance=ExtResource( 1 )]
+
+modulate = Color( 1, 0.954866, 0.660167, 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+move_speed = 120
+hp = 5
+
+[node name="UnitSprite" parent="." index="0"]
+
+script = ExtResource( 3 )
+
+

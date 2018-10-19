@@ -6,8 +6,8 @@ onready var unit = $"../"
 
 # STATS
 var frame_number = 4.0
-onready var attack_fps = 10.0 / unit.attack_speed
-onready var attack_time = frame_number / attack_fps
+onready var gather_fps = 10.0 / unit.gather_speed
+onready var gather_time = frame_number / gather_fps
 
 # STATE
 var transition = null
@@ -15,8 +15,8 @@ var transition = null
 # FUNCTIONS
 func _ready():
 	playing = true
-	var attack_animation = load("res://unit/UnitSprite.tscn::1")
-	attack_animation.set_animation_speed("attack", attack_fps)
+	var gather_animation = load("res://unit/citizen/citizen_spriteframes.tres")
+	gather_animation.set_animation_speed("gather", gather_fps)
 
 func _process(delta):
 	if transition:
@@ -26,8 +26,8 @@ func _process(delta):
 			play("idle")
 			transition = null
 
-func attack():
-	play("attack")
-	transition = attack_time
+func gather():
+	play("gather")
+	transition = gather_time
 
 

@@ -1,15 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://GUI/HUD/lifebar_bg.png" type="Texture" id=1]
-[ext_resource path="res://GUI/HUD/lifebar_fill.png" type="Texture" id=2]
+[ext_resource path="res://other_assets/hud/lifebar_bg.png" type="Texture" id=1]
+[ext_resource path="res://other_assets/hud/lifebar_fill.png" type="Texture" id=2]
 
 
-
-
-[node name="UnitHUD" type="Node2D" index="0"]
+[node name="BuildingHUD" type="Node2D"]
 
 position = Vector2( 0, -13.45 )
-scale = Vector2( 0.04, 0.05 )
+scale = Vector2( 0.2, 0.2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="LifeBar" type="TextureProgress" parent="." index="0"]

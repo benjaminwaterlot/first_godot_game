@@ -1,12 +1,14 @@
 extends Node2D
 
+onready var faction_manager = $"/root/World/Managers/FactionManager"
+
 func _ready():
 	pass
 
 func register_building(building):
 	building.add_to_group("buildings")
-	if building.team == 1:
-		print("this is an enemy")
+	faction_manager.connect_building(building)
+	if building.team != 0:
 		building.add_to_group("enemies")
 
 func unregister_building(dead_building):

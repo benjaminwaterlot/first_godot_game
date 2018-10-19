@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://main/environment/background/Landscape.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main/environment/background/BG.jpg" type="Texture" id=2]
@@ -12,9 +12,11 @@
 [ext_resource path="res://managers/selection_manager.gd" type="Script" id=10]
 [ext_resource path="res://managers/faction_manager.gd" type="Script" id=11]
 [ext_resource path="res://GUI/gui.gd" type="Script" id=12]
-[ext_resource path="res://building/Building.tscn" type="PackedScene" id=13]
-[ext_resource path="res://unit/warrior/enemy/enemy.tscn" type="PackedScene" id=14]
-[ext_resource path="res://unit/warrior/ally/ally.tscn" type="PackedScene" id=15]
+[ext_resource path="res://unit/warrior/Warrior.tscn" type="PackedScene" id=13]
+[ext_resource path="res://unit/citizen/Citizen.tscn" type="PackedScene" id=14]
+[ext_resource path="res://unit/unit.tscn" type="PackedScene" id=15]
+[ext_resource path="res://building/barracks/Barracks.tscn" type="PackedScene" id=16]
+[ext_resource path="res://building/bakery/Bakery.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -202,45 +204,33 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="Bakery" parent="." index="5" instance=ExtResource( 13 )]
+[node name="Warrior" parent="." index="5" instance=ExtResource( 13 )]
 
-position = Vector2( 104, 432 )
-team = 5
+modulate = Color( 0.761719, 0.485887, 0.485887, 1 )
+position = Vector2( 584, 400 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+team = 1
 
-[node name="Enemy" parent="." index="6" instance=ExtResource( 14 )]
+[node name="Citizen" parent="." index="6" instance=ExtResource( 14 )]
 
-position = Vector2( 280, 48.1244 )
+position = Vector2( 848, 80 )
 
-[node name="Enemy2" parent="." index="7" instance=ExtResource( 14 )]
+[node name="Unit" parent="." index="7" instance=ExtResource( 15 )]
 
-position = Vector2( 301.55, 48 )
+position = Vector2( 944, 96 )
 
-[node name="Enemy3" parent="." index="8" instance=ExtResource( 14 )]
+[node name="Warrior2" parent="." index="8" instance=ExtResource( 13 )]
 
-position = Vector2( 272, 80 )
+position = Vector2( 296, 424 )
 
-[node name="Ally" parent="." index="9" instance=ExtResource( 15 )]
+[node name="Barracks" parent="." index="9" instance=ExtResource( 16 )]
 
-position = Vector2( 864, 64 )
+modulate = Color( 1, 0.679666, 0.679666, 1 )
+position = Vector2( 744, 424 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 
-[node name="Ally4" parent="." index="10" instance=ExtResource( 15 )]
+[node name="Bakery" parent="." index="10" instance=ExtResource( 17 )]
 
-position = Vector2( 872, 64 )
-
-[node name="Ally5" parent="." index="11" instance=ExtResource( 15 )]
-
-position = Vector2( 880, 64 )
-
-[node name="Ally6" parent="." index="12" instance=ExtResource( 15 )]
-
-position = Vector2( 840, 64 )
-
-[node name="Ally2" parent="." index="13" instance=ExtResource( 15 )]
-
-position = Vector2( 632, 232 )
-
-[node name="Ally3" parent="." index="14" instance=ExtResource( 15 )]
-
-position = Vector2( 920.971, 84.7478 )
+position = Vector2( 96, 424 )
 
 
