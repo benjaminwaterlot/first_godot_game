@@ -2,28 +2,30 @@
 extends Node2D
 
 # STATE
-var selecting = false
-var selecting_start
-var show_move_GUI = false
-var move_GUI_position
+var selecting : bool = false
+var selecting_start : Vector2
+var show_move_GUI : bool = false
+var move_GUI_position : Vector2
 
 # FUNCTIONS
+
 func _process(delta):
 	if selecting:
 		update()
 
 func _draw():
 	if selecting:
-		var mouse_position = get_global_mouse_position()
-		draw_polygon([
+		var mouse_position : Vector2 = get_global_mouse_position()
+		var coordinates : PoolVector2Array = PoolVector2Array([
 				selecting_start,
 				Vector2(selecting_start.x, mouse_position.y),
 				mouse_position,
 				Vector2(mouse_position.x, selecting_start.y)
-				],
-				[Color(.5, .6, .2, 0.5)])
+				])
+		var colors : PoolColorArray = ([Color(.5, .6, .2, 0.5)] as PoolColorArray)
+		draw_polygon(coordinates, colors)
 	if show_move_GUI:
-		draw_move_GUI(move_GUI_position)
+		draw_move_GUI(move_GUI_position);
 
 func 	display_move_GUI(position):
 	move_GUI_position = position
@@ -40,7 +42,7 @@ func draw_move_GUI(position):
 
 func stop_selecting():
 	selecting = false
-	selecting_start = null
+	selecting_start = Vector2()
 	update()
 
 func start_selecting(start_position):

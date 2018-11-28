@@ -2,7 +2,7 @@
 extends "../building.gd"
 
 # REFERENCES
-var warrior = preload("res://unit/warrior/Warrior.tscn")
+var warrior = preload("res://scenes/unit/warrior/Warrior.tscn")
 
 # FUNCTIONS
 func on_button_click():

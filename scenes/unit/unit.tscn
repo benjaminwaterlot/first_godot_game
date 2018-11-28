@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/unit/unit.gd" type="Script" id=1]
+[ext_resource path="res://scenes/unit/warrior/WarriorSprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/unit/unit_collision_shape.tres" type="Shape2D" id=3]
+[ext_resource path="res://scenes/unit/UnitHUD.tscn" type="PackedScene" id=4]
+
+
+
+[node name="Unit" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 0
+collision_mask = 1024
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+team = 0
+move_speed = 200
+hp = 10
+
+[node name="UnitSprite" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 0.04004 )
+scale = Vector2( 2, 2 )
+script = null
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+
+[node name="UnitCollision" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0, 7 )
+shape = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="UnitHUD" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 0, -24 )
+scale = Vector2( 0.1, 0.1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+

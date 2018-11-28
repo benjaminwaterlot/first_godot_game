@@ -4,6 +4,8 @@
 [ext_resource path="res://building/barracks/barracks.gd" type="Script" id=2]
 [ext_resource path="res://building/barracks/barracks.png" type="Texture" id=3]
 
+
+
 [node name="Barracks" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
