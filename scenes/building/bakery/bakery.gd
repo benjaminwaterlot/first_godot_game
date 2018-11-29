@@ -1,6 +1,8 @@
 # CLASS
 extends "../building.gd"
 
+class_name Bakery
+
 # REFERENCES
 var citizen = preload("res://scenes/unit/citizen/Citizen.tscn")
 

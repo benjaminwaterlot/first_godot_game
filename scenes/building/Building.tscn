@@ -1,10 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://building/building.gd" type="Script" id=1]
-[ext_resource path="res://building/bakery/Bakery.png" type="Texture" id=2]
-[ext_resource path="res://building/BuildingHUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/building/building.gd" type="Script" id=1]
+[ext_resource path="res://scenes/building/bakery/Bakery.png" type="Texture" id=2]
+[ext_resource path="res://scenes/building/BuildingHUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/unit/warrior/animations/idle/tile000.png" type="Texture" id=4]
-[ext_resource path="res://building/building_gui/button.gd" type="Script" id=5]
+[ext_resource path="res://scenes/building/building_gui/button.gd" type="Script" id=5]
+
 
 
 
