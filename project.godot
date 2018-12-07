@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Bakery",
+"language": "GDScript",
+"path": "res://scenes/building/bakery/bakery.gd"
+} ]
 _global_script_class_icons={
-
+"Bakery": ""
 }
 
 [application]

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/barracks.png-ba29a5ad621d46831aa795bacdcf0a89.stex"
+path="res://.import/barracks.png-335178def4f65b090b02c8e9fed44884.stex"
 
 [deps]
 
-source_file="res://building/barracks/barracks.png"
-dest_files=[ "res://.import/barracks.png-ba29a5ad621d46831aa795bacdcf0a89.stex" ]
+source_file="res://scenes/building/barracks/barracks.png"
+dest_files=[ "res://.import/barracks.png-335178def4f65b090b02c8e9fed44884.stex" ]
 
 [params]
 

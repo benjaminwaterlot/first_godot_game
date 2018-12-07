@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://main/environment/background/Landscape.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main/environment/background/BG.jpg" type="Texture" id=2]
@@ -12,11 +12,12 @@
 [ext_resource path="res://managers/selection_manager.gd" type="Script" id=10]
 [ext_resource path="res://managers/faction_manager.gd" type="Script" id=11]
 [ext_resource path="res://GUI/gui.gd" type="Script" id=12]
-[ext_resource path="res://scenes/unit/warrior/Warrior.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/unit/citizen/Citizen.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/unit/unit.tscn" type="PackedScene" id=15]
-[ext_resource path="res://building/barracks/Barracks.tscn" type="PackedScene" id=16]
-[ext_resource path="res://building/bakery/Bakery.tscn" type="PackedScene" id=17]
+[ext_resource path="res://main/CreateBakery.gd" type="Script" id=13]
+[ext_resource path="res://scenes/building/bakery/Bakery.png" type="Texture" id=14]
+[ext_resource path="res://scenes/unit/warrior/Warrior.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/unit/citizen/Citizen.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/building/barracks/Barracks.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/building/bakery/Bakery.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,6 +30,7 @@ __meta__ = {
 }
 
 [node name="Landscape" parent="." instance=ExtResource( 1 )]
+position = Vector2( -37.8033, -3.28725 )
 
 [node name="BG" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -119,7 +121,68 @@ wood_amount = 150
 [node name="GUI" type="Node2D" parent="."]
 script = ExtResource( 12 )
 
+[node name="ConstructionPanel" type="ColorRect" parent="GUI"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 490.0
+margin_right = 1023.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.545098 )
+
+[node name="Button" type="Button" parent="GUI/ConstructionPanel"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 11.0
+margin_top = 72.0
+margin_right = 85.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Bakery"
+flat = false
+align = 1
+script = ExtResource( 13 )
+
+[node name="Background" type="TextureRect" parent="GUI/ConstructionPanel"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 12.0
+margin_right = 257.0
+margin_bottom = 180.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 14 )
+stretch_mode = 0
+
 [node name="Resources" type="HBoxContainer" parent="GUI"]
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -179,7 +242,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Warrior" parent="." instance=ExtResource( 13 )]
+[node name="Warrior" parent="." instance=ExtResource( 15 )]
 modulate = Color( 0.761719, 0.485887, 0.485887, 1 )
 position = Vector2( 584, 400 )
 motion/sync_to_physics = false
@@ -196,7 +259,7 @@ motion/sync_to_physics = false
 position = Vector2( 295.226, 63.265 )
 motion/sync_to_physics = false
 
-[node name="Barracks" parent="." instance=ExtResource( 16 )]
+[node name="Barracks" parent="." instance=ExtResource( 17 )]
 modulate = Color( 1, 0.679666, 0.679666, 1 )
 position = Vector2( 744, 424 )
 
