@@ -6,7 +6,7 @@ extends Node2D
 onready var hud_manager = $"../HUDManager"
 
 # FUNCTIONS
-func send_move_order(destination):
+func send_move_order(destination : Vector2):
 	get_tree().call_group("selection", "receive_move_order", destination)
 	hud_manager.display_move_GUI(destination)
 

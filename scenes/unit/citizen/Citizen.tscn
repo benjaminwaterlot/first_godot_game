@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/unit/unit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/unit/citizen/citizen.gd" type="Script" id=2]
+[ext_resource path="res://scenes/unit/citizen/citizen_spriteframes.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://scenes/unit/citizen/CitizenSprite.gd" type="Script" id=4]
+
+[node name="Citizen" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+move_speed = 120
+hp = 5
+
+[node name="UnitSprite" parent="." index="0"]
+modulate = Color( 1, 0.898039, 0.654902, 1 )
+frames = ExtResource( 3 )
+script = ExtResource( 4 )
+

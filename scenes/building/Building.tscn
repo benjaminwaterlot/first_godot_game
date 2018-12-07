@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/building/building.gd" type="Script" id=1]
+[ext_resource path="res://scenes/building/bakery/Bakery.png" type="Texture" id=2]
+[ext_resource path="res://scenes/building/BuildingHUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/unit/warrior/animations/idle/tile000.png" type="Texture" id=4]
+[ext_resource path="res://scenes/building/building_gui/button.gd" type="Script" id=5]
+
+
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 93.3333, 93.3333 )
+
+[node name="Building" type="StaticBody2D"]
+
+position = Vector2( 0, -50 )
+scale = Vector2( 0.6, 0.6 )
+input_pickable = false
+collision_layer = 512
+collision_mask = 0
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+team = 1
+hp = 10
+
+[node name="BuildingSprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+flip_h = true
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="BuildingHUD" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 26.6667, -103.333 )
+
+[node name="BuildingCollision" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( 0, 6.66665 )
+shape = SubResource( 1 )
+
+[node name="BuildingGUI" type="VBoxContainer" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -147.0
+margin_top = -90.0
+margin_right = -27.0
+margin_bottom = -50.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="Button" type="Button" parent="BuildingGUI" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1.0
+margin_right = 120.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/hseparation = 10
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Unit"
+icon = ExtResource( 4 )
+flat = false
+align = 0
+script = ExtResource( 5 )
+
+
