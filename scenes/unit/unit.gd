@@ -3,6 +3,7 @@
 extends KinematicBody2D
 
 # REFERENCES
+var collision = preload("res://utils/collisions.gd")
 onready var units_manager = $"/root/World/Managers/UnitsManager"
 onready var unit_hud = $"UnitHUD"
 onready var life_bar = $"UnitHUD/LifeBar"
@@ -40,8 +41,8 @@ func receive_aggro_signal():
 func _ready():
 	units_manager.register_unit(self)
 	unit_hud.hide()
-	set_collision_layer(pow(2, 0))
-	set_collision_mask(pow(2, 0))
+	set_collision_layer(collision.UNIT_STOPPED)
+	set_collision_mask(collision.UNIT_STOPPED)
 
 func _physics_process(delta):
 	velocity = compute_gravity(velocity, delta)
@@ -60,13 +61,13 @@ func die():
 
 		# UTILS
 func set_moving(destination):
-	set_collision_layer(pow(2, 1))
-	set_collision_mask(pow(2, 10))
+	set_collision_layer(collision.UNIT_MOVING)
+	set_collision_mask(collision.UNIT_MOVING)
 	move_destination = destination
 
 func stop_moving():
-	set_collision_layer(pow(2, 0))
-	set_collision_mask(pow(2, 0) + pow(2, 10))
+	set_collision_layer(collision.UNIT_STOPPED)
+	set_collision_mask(collision.UNIT_STOPPED)
 	move_destination = null
 
 func compute_gravity(velocity, delta):

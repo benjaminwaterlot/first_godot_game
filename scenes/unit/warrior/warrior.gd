@@ -36,8 +36,6 @@ func _process(delta):
 
 func attack_now(target):
 	target.take_damage(attack_damage)
-	set_collision_layer(pow(2, 1))
-	set_collision_mask(pow(2, 10))
 	var is_target_on_right = target.position.x > position.x
 	flip(is_target_on_right)
 

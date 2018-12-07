@@ -187,14 +187,13 @@ team = 1
 
 [node name="Citizen" parent="." instance=ExtResource( 14 )]
 position = Vector2( 850.073, 80.691 )
-motion/sync_to_physics = false
 
 [node name="Unit" parent="." instance=ExtResource( 15 )]
 position = Vector2( 944, 96 )
 motion/sync_to_physics = false
 
 [node name="Warrior2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 252.468, 413.635 )
+position = Vector2( 295.226, 63.265 )
 motion/sync_to_physics = false
 
 [node name="Barracks" parent="." instance=ExtResource( 16 )]
@@ -202,5 +201,5 @@ modulate = Color( 1, 0.679666, 0.679666, 1 )
 position = Vector2( 744, 424 )
 
 [node name="Bakery" parent="." instance=ExtResource( 17 )]
-position = Vector2( 96, 424 )
+position = Vector2( 95.5849, 424 )
 
