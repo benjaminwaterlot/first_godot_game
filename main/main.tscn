@@ -183,15 +183,13 @@ max_lines_visible = -1
 [node name="Warrior" parent="." instance=ExtResource( 13 )]
 modulate = Color( 0.761719, 0.485887, 0.485887, 1 )
 position = Vector2( 584, 400 )
-motion/sync_to_physics = false
-team = 1
 
 [node name="Citizen" parent="." instance=ExtResource( 14 )]
-position = Vector2( 247.945, 416.125 )
+position = Vector2( 250, 423.125 )
 
 [node name="Warrior2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 307.529, 19.2973 )
-motion/sync_to_physics = false
+team = 1
 
 [node name="Barracks" parent="." instance=ExtResource( 15 )]
 modulate = Color( 1, 0.679666, 0.679666, 1 )

@@ -6,7 +6,7 @@ onready var unit_aggro = $"UnitAggro"
 
 # STATS
 export (int) var attack_damage = 1
-export (float) var attack_speed = 1
+export (float) var attack_speed = .8
 export (float) var attack_range = 30
 
 # STATE
@@ -47,7 +47,7 @@ func receive_action_order(target):
 	if target.team != team:
 		attack_target = target
 	else:
-		receive_move_order(target.position)
+		.receive_action_order(target)
 
 func receive_aggro_signal():
 	if attack_target != null or move_destination:

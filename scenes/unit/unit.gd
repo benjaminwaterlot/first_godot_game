@@ -11,7 +11,7 @@ onready var unit_sprite = $"UnitSprite"
 
 # STATS
 var GRAVITY = 2200
-export (int) var team
+export (int) var team = 0
 export (int) var move_speed = 200
 export (int) var hp = 10
 
@@ -24,6 +24,9 @@ var move_destination
 	# INTERFACE
 func receive_move_order(position):
 	set_moving(position)
+
+func receive_action_order(target):
+	receive_move_order(target.position)
 
 func trigger_selected(is_selected):
 	if is_selected:
@@ -66,6 +69,7 @@ func set_moving(destination):
 	move_destination = destination
 
 func stop_moving():
+	velocity.x = 0
 	set_collision_layer(collision.UNIT_STOPPED)
 	set_collision_mask(collision.UNIT_STOPPED)
 	move_destination = null
@@ -86,15 +90,14 @@ func compute_movement(velocity):
 		var is_arrived = abs(remaining_distance) < 5
 		if is_arrived:
 			stop_moving()
-			velocity.x = 0
 			unit_sprite.play("idle")
 		else:
 			velocity.x = move_speed if is_facing_right else - move_speed
-			unit_sprite.play("running")
+			unit_sprite.play("run")
 			flip(is_facing_right)
 	return velocity
 
 func flip(is_facing_right):
-	if (is_facing_right == (unit_sprite.flip_h)):
+	if (is_facing_right == unit_sprite.flip_h):
 		unit_sprite.flip_h = !unit_sprite.flip_h
 	return velocity
